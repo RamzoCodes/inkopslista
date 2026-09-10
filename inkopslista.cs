@@ -37,5 +37,8 @@ while (!klar) //så länge den är !, fortsätter koden
     {
         klar = true; //ändrar klar till true så att while loopen stängs och vi blir klara.
     }
+    Console.WriteLine("Vill du ta bort något?"); // work in progress just nu
+    string? input = Console.ReadLine();
+
 }
     
