@@ -55,30 +55,33 @@ while (!klar) //Loopen börjar här. så länge den är ! (inte), så fortsätte
 
         inputAsNum <= Varor.Count) // Kontrollerar att numret faktiskt finns med i listan
 
-    {totalPris -=pris[inputAsNum - 1]; //
+    {totalPris -=pris[inputAsNum - 1]; // Tar bort varans pris från totalsumman
 
-    Varor.RemoveAt(inputAsNum - 1);
+    Varor.RemoveAt(inputAsNum - 1); // Tar bort själva varan. -1 behövs för att listan börjar på 0.
 
-    pris.RemoveAt(inputAsNum - 1);
+    pris.RemoveAt(inputAsNum - 1); // tar bort priset som är kopplad till varan.
     
     }
-    else
+    else //körs om något av ovan är false
         {
             Console.WriteLine("Ange ett giltigt nummer tack.");
         }
-            for (int i = 0; i < Varor.Count; i++) //loopar genom alla varor i listan, lägger till 1 varje gång.
+            for (int i = 0; i < Varor.Count; i++) //loopar genom alla varor i listan igen efter borttagning.
     {
         Console.WriteLine($"{i + 1}. {Varor[i]} - {pris[i]} kr"); // skriver ut varan och priset. i+1 gör att listan börjar på 1. Varor[i] hämtar priset på samma position, det gör pris[i] också.  
         
     }
    
    Console.WriteLine($"Totalsumma: {totalPris} kr"); //skriver ut aktuella totalsumman
+
         Console.WriteLine(" "); // jag la till en tom rad för att göra det fint
     }
 
  Console.WriteLine("För att avsluta, ange S. För att fortsätta, tryck Y"); 
-    string avsluta = Console.ReadLine()!.ToLower(); //läser vår svar, tolower gör stort bokstav till litet. 
-    if (avsluta == "s")
+
+    string avsluta = Console.ReadLine()!.ToLower(); //läser vår svar, tolower gör stort bokstav till litet.
+
+    if (avsluta == "s") //kontrollerar om användaren skrev s.
     {
         klar = true; //ändrar klar till true så att while loopen stängs och vi blir klara.
     }
